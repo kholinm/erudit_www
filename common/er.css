@@ -1,0 +1,386 @@
+p, span {
+  font-size: 3.5vw;
+}
+
+span.small { 
+  font-size: 2vw;
+}
+
+button {
+  background-color: palegreen;
+  color: black;
+  padding: 5px 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  opacity: 0.8;
+  font-size: 3.5vw;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.yes_button, .no_button, .ok_button, .close_button {
+  display: inline-block;
+  width: 45%;
+}
+
+.prompt {
+  padding: 5px 5px;
+  line-height: 4vw;
+  font-size: 3.5vw;
+}
+/*
+.ok_button, .close_button {
+  float: center;
+  width: 100%;
+}
+*/
+/* Add a color to the cancel button */
+.yes_button, .ok_button {
+  background-color: green;
+  color: white;
+}
+
+/* Add a color to the delete button */
+.no_button, .close_button {
+  background-color: silver;
+  color: black;
+}
+
+.pale {
+  color: silver;
+}
+
+.control, .control p, .control button {
+  font-size: 3.5vw;
+  display: inline-block;
+  margin: 1vw;
+  margin-left: 0px;
+  white-space: nowrap;
+}
+
+table.board {
+  border: 1vw solid black;
+  border-collapse: collapse;
+}
+
+.board td, .board tr {
+  border-collapse: collapse;
+  border: 1px solid white;
+  padding: 0.3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.board input[type='text']{
+  border: 2px solid black;
+  padding: 1px;
+  width: 4.2vw;
+  height: 4.2vw;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hand input[type='text']{
+  width: 4.2vw;
+  height: 4.2vw;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 1px;
+}
+
+
+.hand, .hand tr, .hand td {
+  border: none;
+}
+
+.bank p {
+  font-size: 3.5vw;
+}
+
+.bank table, .bank td {
+  border-collapse: collapse;
+  border: none;
+  margin: 1px;
+  vertical-align: top;
+  font-size: 3.5vw;
+}
+
+.bank th {
+  font-size: 2.5vw;
+}
+
+.bank_column table, .bank_column td, .bank_column th {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 1px;
+  text-align: center;
+}
+
+.bank_column tr.red {
+  background-color: lightSalmon;
+}
+
+input[type='submit'] {
+  font-size: 3.5vw;
+}
+
+span.center {
+  display: block;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+table.info {
+  border-collapse: collapse;
+  width: 90vw;
+}
+
+.info td {
+  vertical-align: top;
+  border: none;;
+  vertical-align: top;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+table.history {
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.history td, .history th{
+  font-size: 3.5vw;
+  text-align: left;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+table.score {
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.score td, .score th{
+  font-size: 3.5vw;
+  text-align: left;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.loader {
+  width: 15px;
+  display: none;
+}
+
+/* The Modal (background) */
+.modal_back {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal_content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  margin-top: 450px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal_content th, .modal_content td {
+  font-size: 3.3vw;
+  vertical-align: top;
+}
+
+.top {
+  margin-top: 50px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.highlight {
+  background-color: yellow;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: lightSalmon;
+}
+
+
+div.box {
+  background: linear-gradient(to left, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 600px), url('back_1.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 600px){
+
+  p, span {
+    font-size: 17px;
+  }
+
+  span.small {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 15px;
+    margin: 10px;
+    margin-left: 0px;
+  }
+
+  .control, .control p, .control button {
+    font-size: 15px;
+    margin: 10px;
+    margin-left: 0px;
+  }
+  
+  table.board {
+    border: 5px solid black;
+  }
+  
+
+  .board td, .board tr {
+    padding: 1px;
+  }
+
+  .board input[type='text'] {
+    width: 25px;
+    height: 25px;
+  }
+
+  .hand td, .hand input[type='text'] {
+    width: 25px;
+    height: 25px;
+  }
+
+  .prompt {
+    padding: 5px 5px;
+    line-height: 20px;
+    font-size: 15px;
+  }
+
+
+  .modal_content {
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 650px;
+    top: 0px;
+  }
+
+  .top {
+    margin-top: 50px;
+  }
+
+
+  .modal_content th, .modal_content td {
+    font-size: 15px;
+  }
+
+
+  .bank p {
+    font-size: 15px;
+  }
+
+  .bank table, .bank td, .bank th {
+    margin: 2px;
+    font-size: 17px;
+  }
+
+  input[type='submit'] {
+    font-size: 15px;
+  }
+
+  table.info {
+    width: 400px;
+  }
+
+  .info td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  
+  .history td, .history th{
+    font-size: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .score td, .score th{
+    font-size: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+}
+
+@media screen and (min-width: 1000px){
+
+  .modal_content {
+    width: 370px;
+    margin-left: 550px;
+    margin-top: 50px;
+    top: 0px;
+  }
+
+  .modal_content th, .modal_content td {
+    font-size: 15px;
+  }
+
+
+
+}

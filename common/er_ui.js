@@ -124,9 +124,7 @@ erudit.ui = (function() {
             } else if (click_board.hasClass("empty")) {
               ;
             } else if (click_board.hasClass("board_letter")) {
-                if (click_board.val().includes("*")) {
-                  erudit.common.swap(["board", click_board, "board_letter"], ["hand", $(this), "empty"]);
-                }
+              ;
             }
             click_board.removeClass("highlight");
             click_board = "";
@@ -176,6 +174,15 @@ erudit.ui = (function() {
   })
 
   $("#id_complete_move").click(async function(e) {
+    p_id = $('#id_p_id').val();
+    exp_p_id = $('#id_exp_p_id').val();
+    if (p_id != exp_p_id) {
+      msg = "Уверены, что будете ходить вне очереди?";
+      res = await erudit.common.dlg_confirm(msg);
+      if (!res) {
+        return false;
+      }
+    }
     move_made = false;
     $('.hand_cell').each(function() {
       if (!$(this).val()) {
@@ -259,21 +266,30 @@ erudit.ui = (function() {
 
 
   $("#id_revert").click(async function(e) {
-    msg = "К началу какого номера хода вернуть?";
-    move_no = await erudit.common.dlg_prt(msg);
-    if (isNaN(move_no) || move_no < 1) {
+    hist_p_id = $("#id_hist_p_id").val();
+    curr_p_id = $("#id_p_id").val();
+    if (hist_p_id != curr_p_id) {
+      msg = "Отменить последний ход может только сделавший его игрок";
+      await erudit.common.dlg_notify(msg);
+      return false;
+
+    }
+    msg = "Уверены, что хотите отменить свой последний код?";
+    res = await erudit.common.dlg_confirm(msg);
+    if (!res) {
       return false;
     }
+    /*
     $can_submit = false;
     $(".moves").each(function() {
-      if (parseInt($(this).text()) == move_no) {
-        $("#revert_move_no").val(move_no);
+      if (parseInt($(this).text()) == return_move_no) {
+        $("#revert_move_no").val(return_move_no);
         $can_submit = true;
       }
     });
     if (!$can_submit) {
       return false;
-    }
+    }*/
     $('#main_form').append("<input type='hidden' name='send' value='revert'>");
     $('#main_form').submit();
   });

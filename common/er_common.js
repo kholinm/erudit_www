@@ -225,14 +225,18 @@ erudit.common = (function() {
       }
       if (dst.orig == "hand") {
         new_dst_val = "*";
-        src.cls = "";
-        dst.cls = "";
+        if (src.cls == "board_letter") {
+          src.cls = "";
+          dst.cls = "";
+        }
       }
     } else if (dst.obj.val().includes("*")) {
       if (src.orig == "hand") {
         new_src_val = "*";
-        src.cls = "";
-        dst.cls = "";
+        if (dst.cls == "board_letter") {
+          src.cls = "";
+          dst.cls = "";
+        }
       }
       if (src.orig == "board") {
         star_val = await get_star_val();

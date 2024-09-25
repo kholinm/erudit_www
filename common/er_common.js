@@ -215,6 +215,9 @@ erudit.common = (function() {
     if (src.obj.attr('id') == dst.obj.attr('id')) {
       return;
     }
+    if (src.obj.val().includes("*") && dst.obj.val().includes("*")) {
+      return;
+    }
     if (src.obj.val().includes("*")) {
       if (dst.orig == "board") {
         star_val = await get_star_val();

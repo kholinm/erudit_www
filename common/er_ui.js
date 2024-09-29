@@ -2,7 +2,8 @@ erudit.ui = (function() {
 
   var click_board="";
   var click_hand="";
-  var state=0;
+  var state = 0;
+  var b_move_made = false;
 
   $(".board_cell").on("click", async function() {
     switch (state) {
@@ -293,7 +294,8 @@ erudit.ui = (function() {
     $('#main_form').append("<input type='hidden' name='send' value='revert'>");
     $('#main_form').submit();
   });
-
+  
+  return {b_move_made: b_move_made}
 
 })()
 

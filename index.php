@@ -82,7 +82,9 @@ switch ($action) {
     $er->check_words(json_decode($_POST['new_words'], true));
     die;
   case "help":
-    $er->suggest_words();
+    $board = json_decode($_POST['board'], true);
+    $hand = json_decode($_POST['hand'], true);
+    $er->suggest_words($board, $hand);
     die;
   case "complete_move":
     $er->new_move_no=($_POST['new_move_no']);

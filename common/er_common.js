@@ -163,15 +163,48 @@ erudit.common = (function() {
     return false;
   }
 
+  var get_board = function get_board() {
+    var board = new Array();
+    $("#board_table td").each(function () {
+      row = $(this).parent();
+      row_num = row.index();
+      col_num = $(this).index();
+      input = $(this).children();
+      if (!board[row_num]) {
+        board[row_num] = new Array();
+      }
+      board[row_num][col_num] = input.val();
+    });
+    return board;
+  }
+
+  var get_hand = function get_hand() {
+    var hand = new Array();
+    i = 0;
+    $("#hand_table input").each(function () {
+      val = $(this).val();
+      if (val != "") {
+        hand[i] = val;
+        i++;
+      }
+    });
+    return hand;
+  }
+
   var get_help = function get_help() {
-    if (typeof help_msg !== 'undefined') {
+    if (typeof help_msg !== 'undefined' && !erudit.ui.b_move_made) {
       $("#id_help_modal").show();
       return;
     }
     $("#id_help_button").prop('disabled', true);
+    var board = get_board();
+    var hand = get_hand();
     var http = new XMLHttpRequest();
     var url = $('#main_form').attr('action');
-    var params = 'send=help';
+    var ar_params = ["send=help",
+                  "board="+JSON.stringify(board),
+                  "hand="+JSON.stringify(hand)]; 
+    var params = ar_params.join("&");
     http.open('POST', url, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     http.onreadystatechange = function() {
@@ -180,6 +213,7 @@ erudit.common = (function() {
       if (http.readyState == 4 && http.status == 200) {
         help_msg = http.responseText;
         $("#id_modal_text").html(help_msg);
+        erudit.ui.b_move_made = false;
         $("#id_help_modal").show();
       }
     }
@@ -255,6 +289,7 @@ erudit.common = (function() {
     dst.obj.addClass(src.cls);
     src.obj.val(new_src_val);
     dst.obj.val(new_dst_val);
+    erudit.ui.b_move_made = true;
     
   }
 
@@ -265,6 +300,8 @@ erudit.common = (function() {
           get_words: get_words,
           get_used_words: get_used_words,
           check_attachment: check_attachment,
+          get_board: get_board,
+          get_hand: get_hand,
           get_help: get_help,
           close_modal: close_modal,
           swap: swap};
